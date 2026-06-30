@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-mediWell — 더 치유의 시대를 선도하다</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gd:#1B4332;--gm:#2D6A4F;--gs:#52B788;--gp:#D8F3DC;
+  --gold:#C9A84C;--gop:#FDF3DC;
+  --pu:#7C6FF7;--pup:#EDEAFF;
+  --co:#E05A2B;--cop:#FEF0E8;
+  --bl:#185FA5;--blp:#E6F1FB;
+  --teal:#0E9F8E;--tealp:#E0F7F5;
+  --ink:#1A1A1A;--im:#3D3D3D;--il:#6B7280;
+  --sf:#FAFAF8;--wh:#FFFFFF;--br:#E5E7E0;
+  --rsm:6px;--rmd:12px;--rlg:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--sf);color:var(--ink);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--br);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:58px;}
+.nav-logo{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:600;color:var(--gd);}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:18px;}
+.nav-links a{font-size:11px;color:var(--il);transition:color .2s;white-space:nowrap;}
+.nav-links a:hover{color:var(--gm);}
+.nav-cta{background:var(--gd);color:#fff;font-size:11px;font-weight:500;padding:6px 15px;border-radius:var(--rsm);}
+
+/* ── HERO: 트렌드 선도 ── */
+.hero{min-height:100vh;background:linear-gradient(170deg,#050F08 0%,#0D2418 30%,#1B4332 65%,#2D6A4F 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 32px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 55% at 50% 100%,rgba(82,183,136,0.15) 0%,transparent 65%);}
+.hero::after{content:'';position:absolute;top:15%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.05) 0%,transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:5px 14px;font-size:11px;color:rgba(255,255,255,0.7);letter-spacing:.07em;text-transform:uppercase;margin-bottom:28px;position:relative;}
+.hero-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.hero-trend-label{font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;position:relative;}
+.hero h1{font-family:'Noto Serif KR',serif;font-size:clamp(30px,4.8vw,60px);font-weight:600;color:#fff;line-height:1.18;letter-spacing:-1px;margin-bottom:12px;position:relative;}
+.hero h1 .accent{color:var(--gs);}
+.hero h1 .gold{color:var(--gold);}
+.hero-sub{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:20px;position:relative;}
+.hero-desc{max-width:620px;font-size:14px;color:rgba(255,255,255,0.68);line-height:1.9;margin-bottom:36px;position:relative;}
+.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-p{background:var(--gs);color:var(--gd);font-weight:600;font-size:13px;padding:12px 26px;border-radius:var(--rsm);border:none;cursor:pointer;transition:transform .15s;}
+.btn-p:hover{transform:translateY(-1px);}
+.btn-g{background:rgba(201,168,76,0.15);color:var(--gold);font-size:13px;padding:12px 26px;border-radius:var(--rsm);border:1px solid rgba(201,168,76,0.35);cursor:pointer;}
+.hero-stats{display:flex;gap:36px;margin-top:52px;position:relative;border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;flex-wrap:wrap;justify-content:center;}
+.hs-num{font-family:'Inter',sans-serif;font-size:26px;font-weight:600;color:var(--gs);line-height:1;margin-bottom:4px;}
+.hs-lbl{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:.04em;}
+
+/* SECTION */
+section{padding:80px 32px;}
+.si{max-width:1100px;margin:0 auto;}
+.ey{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gm);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.ey::before{content:'';width:18px;height:1px;background:var(--gs);}
+h2{font-family:'Noto Serif KR',serif;font-size:clamp(22px,3.2vw,34px);font-weight:600;color:var(--ink);line-height:1.25;letter-spacing:-.5px;margin-bottom:12px;}
+.sd{font-size:13px;color:var(--il);max-width:580px;line-height:1.85;margin-bottom:40px;}
+
+/* ── TREND TIMELINE ── */
+.trend-section{background:var(--ink);color:#fff;padding:96px 32px;}
+.trend-inner{max-width:1100px;margin:0 auto;}
+.trend-ey{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gs);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.trend-ey::before{content:'';width:18px;height:1px;background:var(--gs);}
+.trend-title{font-family:'Noto Serif KR',serif;font-size:clamp(22px,3vw,34px);font-weight:600;color:#fff;margin-bottom:10px;}
+.trend-desc{font-size:13px;color:rgba(255,255,255,0.45);max-width:560px;line-height:1.85;margin-bottom:56px;}
+
+.trend-timeline{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:start;gap:0;margin-bottom:48px;}
+.trend-era{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--rmd);padding:28px 22px;position:relative;}
+.trend-era.current{background:rgba(82,183,136,0.08);border-color:rgba(82,183,136,0.3);}
+.trend-era.future{background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(82,183,136,0.08));border-color:rgba(201,168,76,0.4);}
+.trend-era-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.era-past .trend-era-label{color:rgba(255,255,255,0.35);}
+.era-now .trend-era-label{color:var(--gs);}
+.era-future .trend-era-label{color:var(--gold);}
+.trend-era-brand{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:600;margin-bottom:6px;}
+.era-past .trend-era-brand{color:rgba(255,255,255,0.5);}
+.era-now .trend-era-brand{color:#fff;}
+.era-future .trend-era-brand{color:var(--gold);}
+.trend-era-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:14px;line-height:1.5;}
+.era-now .trend-era-sub,.era-future .trend-era-sub{color:rgba(255,255,255,0.55);}
+.trend-era-items{list-style:none;}
+.trend-era-items li{font-size:11px;color:rgba(255,255,255,0.5);padding:3px 0 3px 10px;position:relative;line-height:1.45;}
+.trend-era-items li::before{content:'·';position:absolute;left:1px;font-weight:700;}
+.era-past .trend-era-items li::before{color:rgba(255,255,255,0.25);}
+.era-now .trend-era-items li{color:rgba(255,255,255,0.75);}
+.era-now .trend-era-items li::before{color:var(--gs);}
+.era-future .trend-era-items li{color:rgba(255,255,255,0.8);}
+.era-future .trend-era-items li::before{color:var(--gold);}
+.trend-arrow-col{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:48px;}
+.t-arrow{font-size:28px;line-height:1;}
+.t-arrow-label{font-size:9px;color:rgba(255,255,255,0.25);text-align:center;margin-top:4px;line-height:1.3;}
+.era-past .t-arrow{color:rgba(255,255,255,0.2);}
+.era-now-arr .t-arrow{color:var(--gold);}
+
+.trend-kwin{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.tkw-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:20px 16px;text-align:center;}
+.tkw-card.hl{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.25);}
+.tkw-icon{font-size:28px;margin-bottom:8px;}
+.tkw-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px;}
+.tkw-desc{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.6;}
+
+/* ── 더 치유 BRAND ── */
+.heal-section{background:linear-gradient(135deg,#0D2418 0%,#1B4332 100%);color:#fff;padding:96px 32px;}
+.heal-inner{max-width:1100px;margin:0 auto;}
+.heal-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.heal-left h2{color:#fff;margin-bottom:14px;}
+.heal-left p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:24px;}
+.heal-logo-block{display:inline-flex;align-items:baseline;gap:6px;margin-bottom:20px;}
+.heal-logo-the{font-family:'Noto Serif KR',serif;font-size:48px;font-weight:600;color:rgba(255,255,255,0.25);line-height:1;}
+.heal-logo-main{font-family:'Noto Serif KR',serif;font-size:56px;font-weight:600;color:var(--gs);line-height:1;}
+.heal-logo-sub{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:.05em;}
+.heal-law{display:flex;align-items:center;gap:12px;background:rgba(82,183,136,0.1);border:1px solid rgba(82,183,136,0.25);border-radius:8px;padding:14px 16px;margin-bottom:20px;}
+.heal-law-icon{font-size:20px;}
+.heal-law-text strong{display:block;font-size:13px;font-weight:600;color:var(--gs);margin-bottom:2px;}
+.heal-law-text p{font-size:11px;color:rgba(255,255,255,0.5);}
+.heal-pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.hp-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:16px 14px;}
+.hp-icon{font-size:22px;margin-bottom:6px;}
+.hp-title{font-size:12px;font-weight:600;color:#fff;margin-bottom:4px;}
+.hp-desc{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.55;}
+
+/* ── 치유 3대 축 ── */
+.three-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:0;}
+.tp-card{border-radius:var(--rmd);padding:32px 24px;position:relative;overflow:hidden;}
+.tp-card::before{content:'';position:absolute;inset:0;opacity:.08;}
+.tp1{background:#EBF5EE;border:1px solid #A3D4B0;}
+.tp2{background:#E3F0F9;border:1px solid #9AC4E0;}
+.tp3{background:#F0EAF8;border:1px solid #C4A8E0;}
+.tp-icon{font-size:40px;margin-bottom:14px;}
+.tp-title{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:600;margin-bottom:8px;}
+.tp1 .tp-title{color:#1B4332;}
+.tp2 .tp-title{color:#1A3A5C;}
+.tp3 .tp-title{color:#3A1F5C;}
+.tp-sub{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;opacity:.6;}
+.tp1 .tp-sub{color:#2D6A4F;}
+.tp2 .tp-sub{color:#185FA5;}
+.tp3 .tp-sub{color:#6B3FA0;}
+.tp-desc{font-size:12px;color:var(--im);line-height:1.7;margin-bottom:14px;}
+.tp-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tp-tag{font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500;}
+.tp1 .tp-tag{background:#D8F3DC;color:#1B4332;}
+.tp2 .tp-tag{background:#DAEEF9;color:#1A3A5C;}
+.tp3 .tp-tag{background:#EDE0F8;color:#3A1F5C;}
+
+/* ── GLOCAL / 지방소멸 ── */
+.glocal-section{background:var(--wh);padding:80px 32px;}
+.glocal-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.crisis-card{background:var(--cop);border:1px solid #F5B89A;border-radius:var(--rmd);padding:28px 24px;margin-bottom:20px;}
+.crisis-title{font-size:15px;font-weight:600;color:var(--co);margin-bottom:8px;}
+.crisis-desc{font-size:12px;color:var(--im);line-height:1.7;}
+.crisis-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+.cs-item{background:rgba(224,90,43,0.08);border-radius:8px;padding:12px;text-align:center;}
+.cs-num{font-family:'Inter',sans-serif;font-size:22px;font-weight:700;color:var(--co);line-height:1;margin-bottom:4px;}
+.cs-lbl{font-size:10px;color:var(--il);}
+.solution-flow{display:flex;flex-direction:column;gap:10px;}
+.sf-step{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--wh);border:1px solid var(--br);border-radius:8px;}
+.sf-step.active{background:#F0FDF4;border-color:#9FE1CB;}
+.sf-icon{font-size:22px;flex-shrink:0;}
+.sf-text strong{display:block;font-size:13px;font-weight:600;margin-bottom:2px;}
+.sf-text p{font-size:11px;color:var(--il);line-height:1.5;}
+.sf-arr-row{text-align:center;color:var(--il);font-size:14px;padding:2px 0;}
+
+/* ── FUTURE VALUE ── */
+.future-section{background:linear-gradient(160deg,#050F08 0%,#0D2418 40%,#1B4332 100%);color:#fff;padding:96px 32px;}
+.future-inner{max-width:1100px;margin:0 auto;}
+.future-ey{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.future-ey::before{content:'';width:18px;height:1px;background:var(--gold);}
+.future-title{font-family:'Noto Serif KR',serif;font-size:clamp(24px,3.5vw,40px);font-weight:600;color:#fff;margin-bottom:12px;}
+.future-desc{font-size:14px;color:rgba(255,255,255,0.5);max-width:600px;line-height:1.9;margin-bottom:56px;}
+.future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+.fv-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--rmd);padding:24px 20px;position:relative;}
+.fv-card.gold-card{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.3);}
+.fv-num{font-family:'Inter',sans-serif;font-size:32px;font-weight:700;line-height:1;margin-bottom:6px;}
+.fv-card:not(.gold-card) .fv-num{color:var(--gs);}
+.fv-card.gold-card .fv-num{color:var(--gold);}
+.fv-lbl{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:10px;}
+.fv-desc{font-size:11px;color:rgba(255,255,255,0.55);line-height:1.6;}
+
+.value-props{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;}
+.vp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:20px 16px;}
+.vp-icon{font-size:24px;margin-bottom:10px;}
+.vp-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;}
+.vp-desc{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.6;}
+
+.mission-quote{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--rlg);padding:40px 48px;text-align:center;margin-top:56px;}
+.mq-text{font-family:'Noto Serif KR',serif;font-size:clamp(16px,2.2vw,22px);font-weight:600;color:#fff;line-height:1.7;margin-bottom:14px;}
+.mq-text em{font-style:normal;color:var(--gs);}
+.mq-text .gold-em{color:var(--gold);}
+.mq-source{font-size:12px;color:rgba(255,255,255,0.3);}
+
+/* ── PROBLEM ── */
+.problem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.prob-card{background:var(--wh);border:1px solid var(--br);border-radius:var(--rmd);padding:22px 16px;position:relative;overflow:hidden;}
+.prob-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--co);}
+.prob-num{font-family:'Inter',sans-serif;font-size:30px;font-weight:700;color:var(--co);opacity:.1;position:absolute;top:10px;right:12px;line-height:1;}
+.prob-icon{font-size:26px;margin-bottom:8px;}
+.prob-title{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.prob-desc{font-size:11px;color:var(--il);line-height:1.6;}
+.prob-stat{margin-top:8px;font-size:10px;font-weight:600;color:var(--co);background:var(--cop);padding:3px 8px;border-radius:4px;display:inline-block;}
+
+/* ── SOLUTION FLOW ── */
+.sol-flow{display:flex;align-items:stretch;gap:0;margin-bottom:28px;overflow-x:auto;}
+.sol-step{flex:1;background:var(--wh);border:1px solid var(--br);border-radius:var(--rmd);padding:18px 12px;text-align:center;min-width:120px;position:relative;}
+.sol-step+.sol-step{border-left:none;border-radius:0;}
+.sol-step:first-child{border-radius:var(--rmd) 0 0 var(--rmd);}
+.sol-step:last-child{border-radius:0 var(--rmd) var(--rmd) 0;}
+.sol-icon{font-size:24px;margin-bottom:7px;}
+.sol-label{font-size:11px;font-weight:600;color:var(--gm);margin-bottom:3px;}
+.sol-desc{font-size:10px;color:var(--il);line-height:1.45;}
+.sol-arr{display:flex;align-items:center;font-size:16px;color:var(--il);flex-shrink:0;}
+
+/* ── TARGET ── */
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.tgt-card{border-radius:var(--rmd);padding:26px 20px;text-align:center;}
+.tgt-card.t1{background:var(--gp);border:1px solid #9FE1CB;}
+.tgt-card.t2{background:#F0FDF4;border:1px solid #C0DD97;}
+.tgt-card.t3{background:var(--blp);border:1px solid #B5D4F4;}
+.tgt-flag{font-size:34px;margin-bottom:8px;}
+.tgt-num{font-family:'Inter',sans-serif;font-size:26px;font-weight:700;line-height:1;margin-bottom:5px;}
+.t1 .tgt-num{color:var(--gd);}
+.t2 .tgt-num{color:#3B6D11;}
+.t3 .tgt-num{color:var(--bl);}
+.tgt-role{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px;opacity:.65;}
+.tgt-title{font-size:13px;font-weight:600;margin-bottom:5px;}
+.tgt-desc{font-size:11px;color:var(--il);line-height:1.6;}
+.tgt-chips{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:8px;}
+.tgt-chip{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;background:rgba(255,255,255,0.6);color:var(--im);}
+
+/* ── ROADMAP ── */
+.road-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.road-card{border:1px solid var(--br);border-radius:var(--rmd);padding:22px 18px;position:relative;overflow:hidden;}
+.road-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.road-card.r1::before{background:var(--gs);}
+.road-card.r2::before{background:var(--gold);}
+.road-card.r3::before{background:var(--pu);}
+.road-ph{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;margin-bottom:5px;}
+.r1 .road-ph{color:var(--gm);}
+.r2 .road-ph{color:var(--gold);}
+.r3 .road-ph{color:var(--pu);}
+.road-title{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:600;margin-bottom:5px;}
+.road-time{font-size:10px;color:var(--il);margin-bottom:10px;}
+.road-items{list-style:none;}
+.road-items li{font-size:11px;color:var(--im);padding:3px 0 3px 10px;position:relative;border-bottom:1px solid #F0F0EE;line-height:1.4;}
+.road-items li:last-child{border-bottom:none;}
+.road-items li::before{content:'›';position:absolute;left:0;color:var(--gs);font-weight:700;}
+.road-kpi{margin-top:12px;display:flex;flex-wrap:wrap;gap:4px;}
+.road-kpi-item{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;}
+.r1 .road-kpi-item{background:var(--gp);color:var(--gd);}
+.r2 .road-kpi-item{background:var(--gop);color:#7A5C00;}
+.r3 .road-kpi-item{background:var(--pup);color:#4A3FB5;}
+
+/* ── REVENUE ── */
+.rev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.rev-card{border:1px solid var(--br);border-radius:var(--rmd);padding:18px 14px;position:relative;}
+.rev-stripe{position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--rmd) var(--rmd) 0 0;}
+.rev-icon{font-size:20px;margin-bottom:7px;}
+.rev-title{font-size:12px;font-weight:600;margin-bottom:4px;}
+.rev-desc{font-size:10px;color:var(--il);line-height:1.55;margin-bottom:7px;}
+.rev-num{font-size:11px;font-weight:600;padding:3px 9px;border-radius:4px;display:inline-block;}
+
+/* ── CANVAS ── */
+.cpb{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:5px 14px;font-size:11px;font-weight:600;margin-bottom:14px;}
+.cpb-1{background:var(--gp);color:var(--gd);border:1px solid #9FE1CB;}
+.cpb-2{background:var(--gop);color:#7A5C00;border:1px solid #FAC775;}
+.cpb-3{background:var(--pup);color:#4A3FB5;border:1px solid #C4B8F8;}
+.canvas-grid{display:grid;grid-template-columns:148px 1fr 148px;gap:7px;margin-bottom:7px;}
+.canvas-mid{display:grid;gap:7px;}
+.canvas-mid-top{display:grid;grid-template-columns:1fr 2fr 1fr;gap:7px;}
+.canvas-mid-bot{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.cbot{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.cb{background:var(--wh);border:1px solid var(--br);border-radius:9px;padding:13px;}
+.cb.hl1{background:#F0FDF4;border-color:#9FE1CB;}
+.cb.hl2{background:#FFFBEB;border-color:#FAC775;}
+.cb.hl3{background:#F5F3FF;border-color:#C4B8F8;}
+.cb.cost{background:#FFF8F5;border-color:#FCC5A3;}
+.cb.rev{background:#F5F3FF;border-color:#C4B8F8;}
+.cb-lbl{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;}
+.cb-sec{font-size:10px;font-weight:600;color:var(--il);margin:6px 0 3px;}
+.cb ul{list-style:none;}
+.cb li{font-size:11px;color:var(--im);padding:2px 0 2px 9px;position:relative;line-height:1.4;border-bottom:1px solid #F3F4F1;}
+.cb li:last-child{border-bottom:none;}
+.cb li::before{content:'·';position:absolute;left:1px;color:var(--gs);font-weight:700;}
+
+/* ── FLOW BAR ── */
+.flow-bar{display:flex;align-items:center;gap:0;margin-bottom:20px;overflow-x:auto;}
+.fb{flex:1;background:var(--wh);border:1px solid var(--br);border-radius:6px;padding:7px 8px;text-align:center;font-size:10px;font-weight:500;color:var(--im);min-width:88px;line-height:1.45;}
+.fa{font-size:14px;color:var(--il);padding:0 3px;flex-shrink:0;}
+.fb.s1{border-color:#9FE1CB;color:var(--gm);background:#F0FDF4;}
+.fb.s2{border-color:#FAC775;color:#7A5C00;background:#FFFBEB;}
+.fb.s3{border-color:#C4B8F8;color:#4A3FB5;background:var(--pup);}
+
+/* ── KPI ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.kpi-card{background:var(--wh);border:1px solid var(--br);border-radius:var(--rmd);padding:18px 14px;text-align:center;}
+.kpi-phase{font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:7px;padding:2px 8px;border-radius:20px;display:inline-block;}
+.kp1{background:var(--gp);color:var(--gd);}
+.kp2{background:var(--gop);color:#7A5C00;}
+.kp3{background:var(--pup);color:#4A3FB5;}
+.kpa{background:#F0F0EE;color:var(--il);}
+.kpi-num{font-family:'Inter',sans-serif;font-size:26px;font-weight:700;color:var(--gd);line-height:1;margin-bottom:3px;}
+.kpi-lbl{font-size:10px;color:var(--il);}
+.kpi-time{font-size:9px;color:#B0B8C1;margin-top:2px;}
+
+/* ── GLOCAL MAP ── */
+.hub-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;}
+.hub-card{background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.14);border-radius:7px;padding:9px 5px;text-align:center;}
+.hub-flag{font-size:18px;margin-bottom:3px;}
+.hub-country{font-size:9px;color:rgba(255,255,255,0.65);font-weight:500;}
+.hub-status{font-size:8px;margin-top:2px;padding:1px 5px;border-radius:3px;display:inline-block;}
+.hs-active{background:rgba(82,183,136,0.3);color:var(--gs);}
+.hs-ready{background:rgba(201,168,76,0.3);color:var(--gold);}
+.hs-plan{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.35);}
+
+/* ── MVP STATUS ── */
+.mvp-section{background:var(--gd);color:#fff;padding:80px 32px;}
+.mvp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.sl{display:flex;flex-direction:column;gap:8px;}
+.si2{display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.11);border-radius:6px;}
+.sd2{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.done2{background:var(--gs);}
+.prog2{background:var(--gold);}
+.plan2{background:rgba(255,255,255,0.3);}
+.sl2{font-size:12px;color:rgba(255,255,255,0.75);flex:1;}
+.sb{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+.sb-done{background:rgba(82,183,136,0.2);color:var(--gs);}
+.sb-prog{background:rgba(201,168,76,0.2);color:var(--gold);}
+.sb-plan{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);}
+.met-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.met-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.11);border-radius:var(--rmd);padding:16px 14px;}
+.met-num{font-family:'Inter',sans-serif;font-size:24px;font-weight:600;color:var(--gs);line-height:1;margin-bottom:4px;}
+.met-lbl{font-size:10px;color:rgba(255,255,255,0.45);}
+.met-sub{font-size:9px;color:rgba(255,255,255,0.28);margin-top:2px;}
+
+footer{background:#0A1F10;color:rgba(255,255,255,0.38);padding:28px 32px;text-align:center;font-size:11px;line-height:1.9;}
+footer strong{color:rgba(255,255,255,0.65);}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+.sec-white{background:var(--wh);}
+.sec-sf{background:var(--sf);}
+
+@media(max-width:768px){
+  nav{padding:0 12px;}.nav-links{display:none;}
+  section{padding:56px 14px;}
+  .trend-section,.heal-section,.future-section,.mvp-section{padding:56px 14px;}
+  .trend-timeline{grid-template-columns:1fr;}
+  .trend-arrow-col{flex-direction:row;padding:0;}
+  .t-arrow{font-size:18px;}
+  .three-pillars,.problem-grid,.target-grid,.road-grid,.rev-grid,.kpi-grid,.glocal-grid,.heal-grid,.future-grid,.value-props,.canvas-grid,.canvas-mid-top,.canvas-mid-bot,.cbot,.mvp-grid,.met-grid{grid-template-columns:1fr;}
+  .cb.span2{grid-row:auto;}
+  .sol-flow{flex-direction:column;}
+  .sol-step{border-radius:var(--rmd)!important;border-left:1px solid var(--br)!important;}
+  .hero-stats{gap:18px;}
+  .hub-grid{grid-template-columns:repeat(5,1fr);}
+  .trend-kwin{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">K-medi<span>Well</span></div>
+  <div class="nav-links">
+    <a href="#trend">트렌드</a>
+    <a href="#heal">더 치유</a>
+    <a href="#pillars">치유 3축</a>
+    <a href="#glocal">글로컬</a>
+    <a href="#canvas1">캔버스</a>
+    <a href="#future">미래 가치</a>
+    <a href="#kpi">KPI</a>
+    <a href="#mvp">현황</a>
+  </div>
+  <a href="#mvp" class="nav-cta">투자 문의</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge"><span class="hero-badge-dot"></span>모두의 창업 1라운드 선정작 · 국립공주대학교 K-MediWell 글로컬 프로젝트팀</div>
+  <div class="hero-trend-label">야놀자의 시대 → 더 휴식의 시대 → <strong style="color:var(--gold)">더 치유의 시대</strong></div>
+  <h1>치유관광 트렌드를<br><span class="accent">K-MediWell</span>이<br><span class="gold">선도합니다</span></h1>
+  <p class="hero-sub">지역 전통문화 코드 × 치유농업 × 산림치유 × 해양치유 = 고부가가치 치유관광 산업</p>
+  <p class="hero-desc">지방소멸 위기를 극복하는 글로컬사업의 일환으로, K-MediWell 플랫폼을 통해 '더 치유(The Healing)' 치유관광 산업을 육성합니다. 치유관광산업육성법(2026.4.9 시행)과 함께 새로운 K-산업의 시대를 엽니다.</p>
+  <div class="hero-actions">
+    <button class="btn-p" onclick="document.getElementById('trend').scrollIntoView({behavior:'smooth'})">트렌드 흐름 보기</button>
+    <button class="btn-g" onclick="document.getElementById('future').scrollIntoView({behavior:'smooth'})">미래 가치 보기</button>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hs-num">30만</div><div class="hs-lbl">한국 체류 유학생</div></div>
+    <div><div class="hs-num">1.5억</div><div class="hs-lbl">전세계 K-컬처 팬</div></div>
+    <div><div class="hs-num">88개</div><div class="hs-lbl">웰니스관광지</div></div>
+    <div><div class="hs-num">170개</div><div class="hs-lbl">대사관 배포 채널</div></div>
+    <div><div class="hs-num">4.0×</div><div class="hs-lbl">예상 투자 회수 배율</div></div>
+  </div>
+</section>
+
+<!-- ── TREND TIMELINE ── -->
+<section class="trend-section" id="trend">
+  <div class="trend-inner">
+    <p class="trend-ey">Industry Trend Shift</p>
+    <h2 class="trend-title">야놀자의 시대에서<br>'더 치유'의 시대로</h2>
+    <p class="trend-desc">대한민국 여가·관광 트렌드는 단순 숙박 예약에서 휴식으로, 다시 휴식에서 본질적 치유로 진화하고 있습니다. K-MediWell은 이 흐름의 최전선에 있습니다.</p>
+
+    <div class="trend-timeline reveal">
+      <!-- ERA 1 -->
+      <div class="trend-era era-past">
+        <div class="trend-era-label">2010s — 1세대</div>
+        <div class="trend-era-brand">야놀자의 시대</div>
+        <p class="trend-era-sub">숙박 예약 플랫폼 · 가성비 · 편의성</p>
+        <ul class="trend-era-items">
+          <li>숙박·레저 O2O 플랫폼 등장</li>
+          <li>가격 비교·즉시 예약 혁신</li>
+          <li>국내 여행 대중화</li>
+          <li>편리함이 핵심 가치</li>
+        </ul>
+      </div>
+      <!-- ARROW 1 -->
+      <div class="trend-arrow-col era-past">
+        <div class="t-arrow">→</div>
+        <div class="t-arrow-label">패러다임<br>전환</div>
+      </div>
+      <!-- ERA 2 -->
+      <div class="trend-era current era-now">
+        <div class="trend-era-label">2020s — 2세대 · 현재</div>
+        <div class="trend-era-brand">더 휴식의 시대</div>
+        <p class="trend-era-sub">웰니스 · 힐링 · 자연 회복</p>
+        <ul class="trend-era-items">
+          <li>팬데믹 이후 번아웃 급증</li>
+          <li>산림·온천·명상 수요 폭발</li>
+          <li>웰니스관광 88선 공식 선정</li>
+          <li>휴식이 핵심 가치</li>
+        </ul>
+      </div>
+      <!-- ARROW 2 -->
+      <div class="trend-arrow-col era-now-arr">
+        <div class="t-arrow">→</div>
+        <div class="t-arrow-label">K-MediWell<br>선도</div>
+      </div>
+      <!-- ERA 3 -->
+      <div class="trend-era future era-future">
+        <div class="trend-era-label">2026~ — 3세대 · 미래</div>
+        <div class="trend-era-brand">더 치유의 시대</div>
+        <p class="trend-era-sub">전통문화 × 과학 × 글로벌 치유 산업</p>
+        <ul class="trend-era-items">
+          <li>치유관광산업육성법 시행</li>
+          <li>치유농업·산림·해양 통합 플랫폼</li>
+          <li>K-힐링 = 새로운 K-브랜드</li>
+          <li>본질적 치유가 핵심 가치</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trend-kwin reveal">
+      <div class="tkw-card">
+        <div class="tkw-icon">📉</div>
+        <div class="tkw-title">1세대 한계</div>
+        <p class="tkw-desc">야놀자·여기어때는 숙박 예약의 편의성을 혁신했지만, 깊이 있는 치유 경험과 지역 문화 가치는 다루지 못했습니다.</p>
+      </div>
+      <div class="tkw-card">
+        <div class="tkw-icon">🌿</div>
+        <div class="tkw-title">2세대 성장</div>
+        <p class="tkw-desc">웰니스관광 수요 급증, 한국관광공사 88선 공식 선정. 그러나 통합 플랫폼과 글로벌 콘텐츠 유통은 여전히 공백입니다.</p>
+      </div>
+      <div class="tkw-card hl">
+        <div class="tkw-icon">✨</div>
+        <div class="tkw-title">3세대 — K-MediWell이 만드는 시장</div>
+        <p class="tkw-desc" style="color:rgba(255,255,255,0.7);">치유관광산업육성법(2026) + 전통 치유 콘텐츠 + 글로벌 유학생 에이전트. 단순 예약을 넘어 치유 산업 생태계를 구축합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 더 치유 BRAND ── -->
+<section class="heal-section" id="heal">
+  <div class="heal-inner">
+    <div class="heal-grid reveal">
+      <div class="heal-left">
+        <p style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gs);margin-bottom:12px;display:flex;align-items:center;gap:8px;"><span style="width:18px;height:1px;background:var(--gs);display:inline-block;"></span>Brand Vision</p>
+        <div class="heal-logo-block">
+          <span class="heal-logo-the">더</span>
+          <span class="heal-logo-main">치유</span>
+        </div>
+        <p class="heal-logo-sub">The Healing — K-MediWell 치유관광 브랜드</p>
+        <h2 style="color:#fff;margin-top:14px;margin-bottom:14px;">지방소멸 위기를<br>치유산업으로 극복한다</h2>
+        <p class="heal-left p" style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.9;margin-bottom:20px;">지역 전통문화 코드를 기반으로 한 치유농업·산림치유·해양치유를 종합하는 고부가가치 치유관광 산업을 육성함으로써, 지방소멸 위기를 새로운 산업 기회로 전환합니다.</p>
+        <div class="heal-law">
+          <div class="heal-law-icon">🏛</div>
+          <div class="heal-law-text">
+            <strong>치유관광산업육성법 2026.4.9 시행</strong>
+            <p>K-MediWell은 새 법률의 첫 번째 민간 플랫폼 파트너 · 모두의 창업 글로컬사업 연계</p>
+          </div>
+        </div>
+        <div class="heal-law" style="border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.08);">
+          <div class="heal-law-icon">🎓</div>
+          <div class="heal-law-text">
+            <strong style="color:var(--gold);">모두의 창업 · 글로컬대학 30 사업 연계</strong>
+            <p>국립공주대학교 K-MediWell 글로컬 프로젝트팀 · 교육부 글로컬대학 30 KPI와 100% 정합</p>
+          </div>
+        </div>
+      </div>
+      <div class="heal-pillars">
+        <div class="hp-card">
+          <div class="hp-icon">🌾</div>
+          <div class="hp-title">치유농업</div>
+          <p class="hp-desc">농촌 자연환경과 농업활동을 활용한 심신 치유. 지역 소농·농가와 연계해 도농 상생 치유 콘텐츠를 창출합니다.</p>
+        </div>
+        <div class="hp-card">
+          <div class="hp-icon">🌲</div>
+          <div class="hp-title">산림치유</div>
+          <p class="hp-desc">피톤치드·음이온·자연 경관을 활용한 산림 치유. 국유림·지자체 치유의 숲과 연계한 프리미엄 프로그램.</p>
+        </div>
+        <div class="hp-card">
+          <div class="hp-icon">🌊</div>
+          <div class="hp-title">해양치유</div>
+          <p class="hp-desc">해양 기후·해수·해양 생물자원을 활용한 치유. 블루 이코노미와 연계한 해안 지역 특화 치유 관광.</p>
+        </div>
+        <div class="hp-card">
+          <div class="hp-icon">🏺</div>
+          <div class="hp-title">전통문화 치유</div>
+          <p class="hp-desc">한방·명상·전통 공예·국악 등 수백 년 한국 전통 치유 지식을 현대적으로 재해석한 K-힐링 콘텐츠.</p>
+        </div>
+        <div class="hp-card" style="grid-column:span 2;">
+          <div class="hp-icon">📱</div>
+          <div class="hp-title">K-MediWell 플랫폼 통합</div>
+          <p class="hp-desc">위 4가지 치유 유형을 하나의 플랫폼에서 검색·예약·콘텐츠화·글로벌 유통합니다. 단순 예약을 넘어 치유 여정 전체를 설계하는 올인원 치유관광 플랫폼.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 치유 3대 축 ── -->
+<section class="sec-sf" id="pillars">
+  <div class="si">
+    <p class="ey">치유관광 3대 축</p>
+    <h2>자연이 주는 세 가지<br>치유의 언어</h2>
+    <p class="sd">K-MediWell은 치유농업·산림치유·해양치유를 통합하는 국내 유일의 고부가가치 치유관광 플랫폼입니다.</p>
+    <div class="three-pillars reveal">
+      <div class="tp-card tp1">
+        <div class="tp-icon">🌾</div>
+        <div class="tp-sub">Agro-Healing</div>
+        <div class="tp-title">치유농업</div>
+        <p class="tp-desc">농촌 자연환경과 농업 활동을 통해 국민의 신체·정서·심리·사회적 건강을 도모하는 산업. 전국 귀농·귀촌 커뮤니티와 연계해 도농상생 치유 생태계를 구축합니다.</p>
+        <div class="tp-tags">
+          <span class="tp-tag">계절 농사 체험</span>
+          <span class="tp-tag">식물 재배 치유</span>
+          <span class="tp-tag">농촌 커뮤니티</span>
+          <span class="tp-tag">지역 특산물 연계</span>
+        </div>
+      </div>
+      <div class="tp-card tp2">
+        <div class="tp-icon">🌲</div>
+        <div class="tp-sub">Forest Healing</div>
+        <div class="tp-title">산림치유</div>
+        <p class="tp-desc">피톤치드, 음이온, 경관, 소리, 식생 등 산림의 다양한 환경 요소를 활용해 인체의 면역력을 높이고 정신적 스트레스를 완화합니다. 88개 웰니스관광지 중 산림치유 비중이 가장 높습니다.</p>
+        <div class="tp-tags">
+          <span class="tp-tag">치유의 숲 88선</span>
+          <span class="tp-tag">산림치유 프로그램</span>
+          <span class="tp-tag">EEG 뇌파 측정</span>
+          <span class="tp-tag">산림 명상·요가</span>
+        </div>
+      </div>
+      <div class="tp-card tp3">
+        <div class="tp-icon">🌊</div>
+        <div class="tp-sub">Marine Healing</div>
+        <div class="tp-title">해양치유</div>
+        <p class="tp-desc">해양 기후·해수·해양 생물자원 등을 활용한 치유 활동. 블루 이코노미와 연계해 서·남·동해안 특성을 살린 지역 차별화 해양치유 관광 콘텐츠를 개발합니다.</p>
+        <div class="tp-tags">
+          <span class="tp-tag">탈라소테라피</span>
+          <span class="tp-tag">해양 마이크로바이옴</span>
+          <span class="tp-tag">해안 걷기·명상</span>
+          <span class="tp-tag">해양 자원 웰니스</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GLOCAL / 지방소멸 ── -->
+<section class="glocal-section sec-white" id="glocal">
+  <div class="si">
+    <p class="ey">🏛 Glocal Strategy · 지방소멸 극복</p>
+    <h2>지방소멸 위기를<br>치유산업 기회로</h2>
+    <p class="sd">K-MediWell은 글로컬대학 30 사업, 외국인 유학생 네트워크, 치유관광산업육성법을 결합해 지역 전통문화를 세계 시장으로 연결합니다.</p>
+    <div class="glocal-grid reveal">
+      <div>
+        <div class="crisis-card">
+          <div class="crisis-title">🚨 지방소멸 위기 현황</div>
+          <p class="crisis-desc">전국 228개 시·군·구 중 절반 이상이 소멸 위험 지역으로 분류. 지역 전통문화·치유 자원이 콘텐츠화되지 못한 채 소멸 위기에 처해 있습니다.</p>
+          <div class="crisis-stats">
+            <div class="cs-item"><div class="cs-num">78%</div><div class="cs-lbl">수도권 관광 집중도</div></div>
+            <div class="cs-item"><div class="cs-num">&lt;1%</div><div class="cs-lbl">글로벌 유통 전통 콘텐츠</div></div>
+          </div>
+        </div>
+        <div style="background:var(--gp);border:1px solid #9FE1CB;border-radius:var(--rmd);padding:20px 18px;">
+          <div style="font-size:12px;font-weight:600;color:var(--gd);margin-bottom:10px;">🌿 K-MediWell 글로컬 해결 구조</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:rgba(255,255,255,0.6);border-radius:7px;padding:10px;font-size:11px;color:var(--im);"><strong style="display:block;font-size:11px;font-weight:600;color:var(--gd);margin-bottom:2px;">📚 콘텐츠화</strong>지역 전통문화를 전자북·웹툰으로 디지털 자산화</div>
+            <div style="background:rgba(255,255,255,0.6);border-radius:7px;padding:10px;font-size:11px;color:var(--im);"><strong style="display:block;font-size:11px;font-weight:600;color:var(--gd);margin-bottom:2px;">🌏 글로벌화</strong>유학생 에이전트를 통해 전 세계로 유통</div>
+            <div style="background:rgba(255,255,255,0.6);border-radius:7px;padding:10px;font-size:11px;color:var(--im);"><strong style="display:block;font-size:11px;font-weight:600;color:var(--gd);margin-bottom:2px;">✈️ 방문 유도</strong>외국인을 지역 치유관광지로 직접 연결</div>
+            <div style="background:rgba(255,255,255,0.6);border-radius:7px;padding:10px;font-size:11px;color:var(--im);"><strong style="display:block;font-size:11px;font-weight:600;color:var(--gd);margin-bottom:2px;">💰 수익 환류</strong>예약·이북 수익이 지역 사업자에게 직접 귀속</div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-flow">
+        <div class="sf-step active"><div class="sf-icon">🏛</div><div class="sf-text"><strong>치유관광산업육성법 (2026.4.9 시행)</strong><p>K-MediWell이 첫 번째 민간 플랫폼 파트너로 포지셔닝. 정부 지원·인증·지구 지정 직접 수혜.</p></div></div>
+        <div class="sf-arr-row">↓</div>
+        <div class="sf-step active"><div class="sf-icon">🎓</div><div class="sf-text"><strong>글로컬대학 30 × K-MediWell 연계</strong><p>교육부 지정 30개 글로컬대학 외국인 유학생을 K-문화 셀러로 연결. 대학별 지역 특화 전통문화 콘텐츠 개발.</p></div></div>
+        <div class="sf-arr-row">↓</div>
+        <div class="sf-step"><div class="sf-icon">📖</div><div class="sf-text"><strong>지역 치유문화 전자북 시리즈</strong><p>"외국인이 본 OO 지역 치유문화" 시리즈. 유학생이 취재·번역·출간. AI 번역으로 제작비 80% 절감.</p></div></div>
+        <div class="sf-arr-row">↓</div>
+        <div class="sf-step"><div class="sf-icon">🌏</div><div class="sf-text"><strong>170개 대사관 공식 배포 + 1,400개 플랫폼</strong><p>정부 신뢰 기반 글로벌 유통망. 아마존·위챗·Zalo·라쿠텐 자동 연결.</p></div></div>
+        <div class="sf-arr-row">↓</div>
+        <div class="sf-step active"><div class="sf-icon">💰</div><div class="sf-text"><strong>지역 수익 환류 + 지방소멸 극복</strong><p>외국인 방문 증가 → 지역 숙박·식당·체험 수요 창출 → 지역 경제 활성화. 디지털 기념품 경제로 관광 이후에도 지속 소비.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section class="sec-sf" id="problem">
+  <div class="si">
+    <p class="ey">🔴 Problem</p>
+    <h2>우리가 해결하는<br>4가지 구조적 문제</h2>
+    <p class="sd">한국 관광의 역설 — 외국인은 늘었지만 지역 전통 치유 문화는 언어의 벽 너머에 잠들어 있습니다.</p>
+    <div class="problem-grid reveal">
+      <div class="prob-card"><div class="prob-num">01</div><div class="prob-icon">🗺</div><div class="prob-title">관광 쏠림 현상</div><p class="prob-desc">외국인 대다수가 수도권·유명 관광지 집중. 지역 치유 자원이 콘텐츠화되지 못한 채 소멸 위기.</p><span class="prob-stat">수도권 집중도 78%+</span></div>
+      <div class="prob-card"><div class="prob-num">02</div><div class="prob-icon">📚</div><div class="prob-title">전통 지식의 고립</div><p class="prob-desc">국악인·한의사·전통 장인의 수십 년 지식이 글로벌 유통 경로 없이 소멸 위기. 미번역 K-지식 수천 가지.</p><span class="prob-stat">글로벌 유통 1% 미만</span></div>
+      <div class="prob-card"><div class="prob-num">03</div><div class="prob-icon">🎓</div><div class="prob-title">유학생 자원 미활용</div><p class="prob-desc">30만 유학생이 한국어·문화·모국 네트워크를 동시 보유. 콘텐츠 창작자·글로벌 셀러로 연결하는 시스템 전무.</p><span class="prob-stat">유학생 수익화율 &lt;1%</span></div>
+      <div class="prob-card"><div class="prob-num">04</div><div class="prob-icon">📉</div><div class="prob-title">관광수지 적자 구조</div><p class="prob-desc">연간 관광수지 적자 수십조 원. 저부가가치 숙박·쇼핑에서 고부가가치 치유 콘텐츠로 전환 필요.</p><span class="prob-stat">관광수지 적자 수십조 원</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTION ── -->
+<section class="sec-white" id="solution">
+  <div class="si">
+    <p class="ey">✅ Solution</p>
+    <h2>유학생이 저자가 되고<br>전통이 글로벌 상품이 된다</h2>
+    <p class="sd">K-MediWell은 치유농업·산림치유·해양치유·전통문화를 통합하는 올인원 치유관광 플랫폼입니다.</p>
+    <div class="sol-flow reveal">
+      <div class="sol-step"><div class="sol-icon">🎓</div><div class="sol-label">K-문화 체험 교육</div><p class="sol-desc">전통 치유 직접 체험·학습. 웹툰·전자북 워크숍 12주.</p></div>
+      <div class="sol-arr">›</div>
+      <div class="sol-step"><div class="sol-icon">📖</div><div class="sol-label">전자북·웹툰 출간</div><p class="sol-desc">AI 번역 80% 절감. 6개 언어 동시 출판. 1,400개 플랫폼.</p></div>
+      <div class="sol-arr">›</div>
+      <div class="sol-step"><div class="sol-icon">🌏</div><div class="sol-label">귀국 후 글로벌 셀러</div><p class="sol-desc">모국 네트워크로 책·치유관광 커미션 판매.</p></div>
+      <div class="sol-arr">›</div>
+      <div class="sol-step"><div class="sol-icon">✈️</div><div class="sol-label">88개소 예약 연계</div><p class="sol-desc">전자북 독자 → K-mediWell 예약 전환. 치유농업·산림·해양 통합.</p></div>
+      <div class="sol-arr">›</div>
+      <div class="sol-step"><div class="sol-icon">🏡</div><div class="sol-label">디지털 노마드 정착</div><p class="sol-desc">수익 창출 후 한국 디지털 노마드 비자로 장기 활동.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TARGET ── -->
+<section class="sec-sf" id="target">
+  <div class="si">
+    <p class="ey">🎯 Target</p>
+    <h2>세 고객이 하나의 생태계를 만든다</h2>
+    <p class="sd">콘텐츠를 만드는 사람, 지식을 공유하는 사람, 그 콘텐츠를 소비하는 사람을 K-MediWell이 연결합니다.</p>
+    <div class="target-grid reveal">
+      <div class="tgt-card t1"><div class="tgt-flag">🎓</div><div class="tgt-num">30만</div><div class="tgt-role">Primary · 핵심 고객</div><div class="tgt-title">한국 체류 외국인 유학생</div><p class="tgt-desc">한국어 능력·모국 네트워크·문화 감수성을 동시 보유한 최고의 K-문화 전달자. 웹툰·전자북 창작 교육으로 글로벌 셀러로 성장.</p><div class="tgt-chips"><span class="tgt-chip">콘텐츠 창작자</span><span class="tgt-chip">글로벌 셀러</span><span class="tgt-chip">문화 대사</span></div></div>
+      <div class="tgt-card t2"><div class="tgt-flag">🌿</div><div class="tgt-num">수천 명</div><div class="tgt-role">Secondary · 지식 공급자</div><div class="tgt-title">한국 전통 지식인</div><p class="tgt-desc">국악인·한의사·무속 예술가·전통 장인·지역 치유사. 수십 년 지식을 보유했지만 글로벌 유통 경로가 없었던 분들을 저자로 연결.</p><div class="tgt-chips"><span class="tgt-chip">원천 지식 보유자</span><span class="tgt-chip">글로벌 저자</span><span class="tgt-chip">로열티 수익</span></div></div>
+      <div class="tgt-card t3"><div class="tgt-flag">✈️</div><div class="tgt-num">1.5억</div><div class="tgt-role">Tertiary · 최종 소비자</div><div class="tgt-title">전세계 K-컬처 팬 &amp; 방한 외국인</div><p class="tgt-desc">K-팝·K-드라마에 열광하지만 전통·철학·치유 세계를 접할 콘텐츠가 없었던 1.5억 팬. 웹툰→전자북→치유관광으로 연결.</p><div class="tgt-chips"><span class="tgt-chip">전자북 독자</span><span class="tgt-chip">치유관광객</span><span class="tgt-chip">K-문화 소비자</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROADMAP ── -->
+<section class="sec-white" id="roadmap">
+  <div class="si">
+    <p class="ey">🗺 MVP Roadmap</p>
+    <h2>3단계로 세계를 연결하다</h2>
+    <p class="sd">씨앗 → 성장 → 글로벌. 각 단계는 이전 단계의 자산을 계승하며 수익을 누적합니다.</p>
+    <div class="road-grid reveal">
+      <div class="road-card r1"><div class="road-ph">Phase 1 · 0~6개월</div><div class="road-title">🌱 씨앗 — 파일럿 &amp; 검증</div><div class="road-time">국립공주대학교 외국인 유학생 50명 파일럿</div><ul class="road-items"><li>K-문화 체험 교육 커리큘럼 (12주)</li><li>웹툰 제작 워크숍</li><li>AI 번역·편집 파이프라인 구축</li><li>전자북 3~5종 출간 (아마존·애플북스)</li><li>88개소 예약 플랫폼 MVP 오픈</li></ul><div class="road-kpi"><span class="road-kpi-item">파일럿 50명</span><span class="road-kpi-item">전자북 5종</span><span class="road-kpi-item">글로컬대학 2개 MOU</span></div></div>
+      <div class="road-card r2"><div class="road-ph">Phase 2 · 6~18개월</div><div class="road-title">🌿 성장 — 대사관 연계 &amp; 치유관광 결합</div><div class="road-time">전국 대학 유학생 500명으로 확장</div><ul class="road-items"><li>170개 한국 대사관 공식 배포</li><li>치유관광상품 + 전자북 번들 출시</li><li>뉴욕·도쿄·파리 글로벌 허브 오픈</li><li>셀러 커미션 시스템 (35% 자동 정산)</li><li>K-BEPC 자격 인증 체계 구축</li></ul><div class="road-kpi"><span class="road-kpi-item">셀러 500명</span><span class="road-kpi-item">대사관 170개국</span><span class="road-kpi-item">글로벌 허브 3곳</span></div></div>
+      <div class="road-card r3"><div class="road-ph">Phase 3 · 18개월+</div><div class="road-title">🌳 글로벌 — K-힐링 세계 표준</div><div class="road-time">70개국 1,400개 플랫폼 전면 연결</div><ul class="road-items"><li>아마존·애플·라쿠텐·코보 전체 유통</li><li>AI 뇌파 분석 플랫폼 구축</li><li>디지털 노마드 비자 연계 정착 지원</li><li>K-힐링 세계 표준화 (WHO 연계)</li><li>K-MediWell 브랜드 IPO 준비</li></ul><div class="road-kpi"><span class="road-kpi-item">70개국 활동</span><span class="road-kpi-item">1,400개 플랫폼</span><span class="road-kpi-item">투자 4.0× 회수</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVENUE ── -->
+<section class="sec-sf" id="revenue">
+  <div class="si">
+    <p class="ey">💵 Revenue Model</p>
+    <h2>4가지 수익원이 복리로 성장한다</h2>
+    <p class="sd">콘텐츠 → 교육 → 관광 → 정착으로 이어지는 수익 복합 구조입니다.</p>
+    <div class="rev-grid reveal">
+      <div class="rev-card"><div class="rev-stripe" style="background:var(--gs);"></div><div class="rev-icon">📚</div><div class="rev-title">웹툰·전자북 판매</div><p class="rev-desc">글로벌 1,400개 플랫폼 유통. 저자 로열티 35%, 플랫폼 수수료 15%.</p><span class="rev-num" style="background:var(--gp);color:var(--gd);">저자 로열티 35%</span></div>
+      <div class="rev-card"><div class="rev-stripe" style="background:var(--gold);"></div><div class="rev-icon">✈️</div><div class="rev-title">치유관광 커미션</div><p class="rev-desc">전자북 독자의 한국 치유관광 예약 연계. 88개 웰니스관광지 커미션.</p><span class="rev-num" style="background:var(--gop);color:#7A5C00;">판매 커미션 20%</span></div>
+      <div class="rev-card"><div class="rev-stripe" style="background:var(--pu);"></div><div class="rev-icon">🎓</div><div class="rev-title">교육 프로그램</div><p class="rev-desc">K-문화 체험 교육 12주 과정. K-BEPC 자격 인증 시험 수강료.</p><span class="rev-num" style="background:var(--pup);color:#4A3FB5;">1인 89만원</span></div>
+      <div class="rev-card"><div class="rev-stripe" style="background:var(--bl);"></div><div class="rev-icon">🏆</div><div class="rev-title">멤버십 &amp; 라이선스</div><p class="rev-desc">글로벌 셀러 프리미엄 멤버십. 현지 에이전시 가맹비·라이선스.</p><span class="rev-num" style="background:var(--blp);color:var(--bl);">월 $99 멤버십</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CANVAS 1 ── -->
+<section class="sec-white" id="canvas1">
+  <div class="si">
+    <p class="ey">Business Model Canvas</p>
+    <div class="cpb cpb-1">🌿 Phase 1 비즈니스 모델 캔버스</div>
+    <h2>1단계 — 88개 웰니스관광지 예약 플랫폼</h2>
+    <p class="sd">한국관광공사 공식 선정 88개소를 K-mediWell 앱·웹에서 원스톱 예약 · Osterwalder &amp; Pigneur (2010) 모델 기반</p>
+    <div class="canvas-grid reveal">
+      <div class="cb" style="grid-row:span 2;"><div class="cb-lbl" style="color:#3B6D11;">🤝 핵심 파트너</div><div class="cb-sec">▸ 공공</div><ul><li>문화체육관광부</li><li>한국관광공사</li><li>지자체 관광부서</li></ul><div class="cb-sec">▸ 시설</div><ul><li>88개 웰니스관광지</li><li>치유농업·산림·해양치유 시설</li></ul><div class="cb-sec">▸ 기술</div><ul><li>PG사·클라우드·지도 API</li></ul></div>
+      <div class="canvas-mid"><div class="canvas-mid-top"><div class="cb"><div class="cb-lbl" style="color:#185FA5;">⚙️ 핵심 활동</div><ul><li>88개소 DB 구축·관리</li><li>실시간 예약 시스템</li><li>파트너 온보딩·정산</li><li>CS·앱 기능 고도화</li></ul></div><div class="cb hl1"><div class="cb-lbl" style="color:#2D6A4F;">💎 가치 제안</div><div class="cb-sec">▸ 이용자</div><ul><li>공식 웰니스관광지 원스톱 예약</li><li>치유농업·산림·해양·한방 유형별 필터</li><li>K-mediWell 인증 마크 품질 보증</li></ul><div class="cb-sec">▸ 사업자</div><ul><li>즉시 입점·전국 노출</li><li>예약·정산 대시보드 제공</li></ul></div><div class="cb"><div class="cb-lbl" style="color:#993556;">💬 고객 관계</div><ul><li>AI 챗봇·카카오 알림톡</li><li>리뷰·포인트·뉴스레터</li></ul></div></div><div class="canvas-mid-bot"><div class="cb"><div class="cb-lbl" style="color:#854F0B;">🏗 핵심 자원</div><ul><li>88개소 시설 DB</li><li>예약·결제 플랫폼</li><li>K-mediWell 브랜드</li></ul></div><div class="cb"><div class="cb-lbl" style="color:#0F6E56;">📡 채널</div><ul><li>K-mediWell 앱·웹</li><li>카카오·네이버 연동</li><li>SNS·관광공사 홍보</li></ul></div></div></div>
+      <div class="cb" style="grid-row:span 2;"><div class="cb-lbl" style="color:#185FA5;">👥 고객 세그먼트</div><div class="cb-sec">▸ B2C</div><ul><li>웰니스·힐링 여행자</li><li>번아웃 직장인</li><li>3040 건강관리 여성</li><li>액티브 시니어</li></ul><div class="cb-sec">▸ B2B</div><ul><li>기업 복지 담당자</li><li>학교·병원 단체</li></ul><div class="cb-sec">▸ 파트너</div><ul><li>88개 시설 사업자</li></ul></div>
+    </div>
+    <div class="cbot reveal"><div class="cb cost"><div class="cb-lbl" style="color:#993C1D;">💸 비용 구조</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 10px;"><ul><li>플랫폼 개발·유지</li><li>88개소 DB·촬영</li></ul><ul><li>마케팅·CS 인건비</li><li>클라우드 인프라</li></ul></div></div><div class="cb rev"><div class="cb-lbl" style="color:#3C3489;">💰 수익 흐름</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 10px;"><ul><li>예약 수수료 5~10%</li><li>파트너 입점·광고</li></ul><ul><li>기업 패키지 B2B</li><li>관광공사 수탁</li></ul></div></div></div>
+    <p style="font-size:10px;color:var(--il);text-align:right;margin-top:7px;">참조: Osterwalder &amp; Pigneur (2010)</p>
+  </div>
+</section>
+
+<!-- ── CANVAS 2 ── -->
+<section class="sec-sf" id="canvas2">
+  <div class="si">
+    <div class="cpb cpb-2">📖 Phase 2 비즈니스 모델 캔버스</div>
+    <h2>2단계 — 전자북 제작·유통으로 시설 소개 및 판매</h2>
+    <p class="sd">88개소 취재 → 치유관광 이북 시리즈 → 국내외 플랫폼 유통 → QR 예약 전환 · 1단계 계승</p>
+    <div class="flow-bar reveal"><div class="fb s2">88개소<br>현장 취재</div><div class="fa">→</div><div class="fb s2">이북 시리즈<br>제작</div><div class="fa">→</div><div class="fb s2">국내외<br>플랫폼 유통</div><div class="fa">→</div><div class="fb s2">QR →<br>예약 전환</div><div class="fa">→</div><div class="fb s2">이북 판매 +<br>수수료</div></div>
+    <div class="canvas-grid reveal">
+      <div class="cb" style="grid-row:span 2;"><div class="cb-lbl" style="color:#3B6D11;">🤝 핵심 파트너</div><div class="cb-sec">▸ 콘텐츠</div><ul><li>여행·의학 전문 작가</li><li>사진·영상 촬영팀</li><li>한방·웰니스 자문</li></ul><div class="cb-sec">▸ 유통</div><ul><li>교보·예스24·리디</li><li>아마존·애플·구글북스</li><li>관광공사 디지털몰</li></ul></div>
+      <div class="canvas-mid"><div class="canvas-mid-top"><div class="cb"><div class="cb-lbl" style="color:#185FA5;">⚙️ 핵심 활동</div><ul><li>88개소 현장 취재</li><li>국·영·중 다국어 제작</li><li>EPUB 포맷 변환</li><li>이북↔예약 링크 연동</li></ul></div><div class="cb hl2"><div class="cb-lbl" style="color:#7A5C00;">💎 가치 제안</div><div class="cb-sec">▸ 독자</div><ul><li>88개소 치유관광 완전 가이드</li><li>이북 QR로 즉시 예약</li><li>치유 유형별 심층 정보</li></ul><div class="cb-sec">▸ 사업자</div><ul><li>이북 브랜딩·홍보</li><li>독자→예약 구매 여정</li><li>해외 영문·중문 노출</li></ul></div><div class="cb"><div class="cb-lbl" style="color:#993556;">💬 고객 관계</div><ul><li>이북 QR 예약 연동</li><li>신간 뉴스레터</li><li>독자 리뷰·멤버십</li></ul></div></div><div class="canvas-mid-bot"><div class="cb"><div class="cb-lbl" style="color:#854F0B;">🏗 핵심 자원</div><ul><li>88개소 취재 콘텐츠</li><li>이북 편집·저작권</li><li>이북↔예약 연동 기술</li></ul></div><div class="cb"><div class="cb-lbl" style="color:#0F6E56;">📡 채널</div><ul><li>국내 교보·예스24·리디</li><li>글로벌 아마존·애플</li><li>K-mediWell 앱 직판</li></ul></div></div></div>
+      <div class="cb" style="grid-row:span 2;"><div class="cb-lbl" style="color:#185FA5;">👥 고객 세그먼트</div><div class="cb-sec">▸ 이북 독자</div><ul><li>웰니스 여행 계획자</li><li>K-컬처 관심 외국인</li><li>의료관광 준비자</li></ul><div class="cb-sec">▸ 전환 고객</div><ul><li>이북 독자→시설 예약</li></ul><div class="cb-sec">▸ B2B</div><ul><li>기업 복지·지자체</li></ul></div>
+    </div>
+    <div class="cbot reveal"><div class="cb cost"><div class="cb-lbl" style="color:#993C1D;">💸 비용 구조</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 10px;"><ul><li>현장 취재·촬영·편집</li><li>EPUB 개발·다국어 번역</li></ul><ul><li>플랫폼 유통 수수료</li><li>마케팅·시스템 연동</li></ul></div></div><div class="cb rev"><div class="cb-lbl" style="color:#3C3489;">💰 수익 흐름</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 10px;"><ul><li>이북 판매 수익</li><li>QR 예약 수수료</li></ul><ul><li>수록·광고 입점비</li><li>수탁 용역·라이선스</li></ul></div></div></div>
+    <p style="font-size:10px;color:var(--il);text-align:right;margin-top:7px;">참조: Osterwalder &amp; Pigneur (2010)</p>
+  </div>
+</section>
+
+<!-- ── CANVAS 3 ── -->
+<section class="sec-white" id="canvas3">
+  <div class="si">
+    <div class="cpb cpb-3">🌏 Phase 3 비즈니스 모델 캔버스</div>
+    <h2>3단계 — 외국인 유학생 글로벌 에이전트 모델</h2>
+    <p class="sd">유학생이 이북을 모국어로 번역해 자국에서 판매 · K-mediWell 글로벌 유입 · 1·2단계 계승</p>
+    <div class="flow-bar reveal"><div class="fb s3">2단계<br>이북 원본</div><div class="fa">→</div><div class="fb s3">유학생<br>모국어 번역</div><div class="fa">→</div><div class="fb s3">현지 플랫폼<br>이북 판매</div><div class="fa">→</div><div class="fb s3">SNS<br>플랫폼 소개</div><div class="fa">→</div><div class="fb s3">현지 독자<br>예약 유입</div><div class="fa">→</div><div class="fb s3">수수료 +<br>로열티</div></div>
+    <!-- Global hub -->
+    <div style="background:var(--gd);border-radius:var(--rlg);padding:20px;margin-bottom:20px;" class="reveal">
+      <p style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);text-align:center;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">🌏 글로벌 유학생 에이전트 네트워크</p>
+      <div class="hub-grid">
+        <div class="hub-card"><div class="hub-flag">🇨🇳</div><div class="hub-country">중국</div><span class="hub-status hs-ready">위챗·웨이보</span></div>
+        <div class="hub-card"><div class="hub-flag">🇻🇳</div><div class="hub-country">베트남</div><span class="hub-status hs-ready">Zalo·Tiki</span></div>
+        <div class="hub-card"><div class="hub-flag">🇯🇵</div><div class="hub-country">일본</div><span class="hub-status hs-ready">아마존JP</span></div>
+        <div class="hub-card"><div class="hub-flag">🇺🇸</div><div class="hub-country">뉴욕허브</div><span class="hub-status hs-active">Active</span></div>
+        <div class="hub-card"><div class="hub-flag">🇫🇷</div><div class="hub-country">파리허브</div><span class="hub-status hs-active">Active</span></div>
+        <div class="hub-card"><div class="hub-flag">🇲🇾</div><div class="hub-country">말레이시아</div><span class="hub-status hs-plan">Shopee</span></div>
+        <div class="hub-card"><div class="hub-flag">🇮🇩</div><div class="hub-country">인도네시아</div><span class="hub-status hs-plan">Tokopedia</span></div>
+        <div class="hub-card"><div class="hub-flag">🇹🇭</div><div class="hub-country">태국</div><span class="hub-status hs-plan">LINE</span></div>
+        <div class="hub-card"><div class="hub-flag">🇩🇪</div><div class="hub-country">베를린</div><span class="hub-status hs-plan">유럽</span></div>
+        <div class="hub-card"><div class="hub-flag">🌐</div><div class="hub-country">+61개국</div><span class="hub-status hs-plan">확장</span></div>
+      </div>
+    </div>
+    <div class="canvas-grid reveal">
+      <div class="cb" style="grid-row:span 2;"><div class="cb-lbl" style="color:#3B6D11;">🤝 핵심 파트너</div><div class="cb-sec">▸ 유학생 에이전트</div><ul><li>한국 내 외국인 유학생</li><li>유학생 커뮤니티·학생회</li><li>대학 국제처·글로컬대학</li></ul><div class="cb-sec">▸ 현지 유통</div><ul><li>현지 이북 플랫폼</li><li>현지 여행사·인플루언서</li><li>관광공사 해외지사</li></ul></div>
+      <div class="canvas-mid"><div class="canvas-mid-top"><div class="cb"><div class="cb-lbl" style="color:#185FA5;">⚙️ 핵심 활동</div><ul><li>유학생 모집·교육·인증</li><li>번역 품질 검수</li><li>에이전트 수익 정산</li><li>다국어 플랫폼 현지화</li><li>글로벌 SNS 캠페인</li></ul></div><div class="cb hl3"><div class="cb-lbl" style="color:#4A3FB5;">💎 가치 제안</div><div class="cb-sec">▸ 유학생 (에이전트)</div><ul><li>모국어 번역 이북 자국 직접 판매</li><li>판매·예약 수익 공유 30%</li><li>공식 에이전트 자격 · 귀국 후 창업</li></ul><div class="cb-sec">▸ 현지 소비자</div><ul><li>모국어로 읽는 K-웰니스 가이드</li><li>신뢰 채널(유학생) 소개</li></ul></div><div class="cb"><div class="cb-lbl" style="color:#993556;">💬 고객 관계</div><ul><li>전담 관리자·등급제</li><li>수익 대시보드</li><li>현지어 CS·챗봇</li></ul></div></div><div class="canvas-mid-bot"><div class="cb"><div class="cb-lbl" style="color:#854F0B;">🏗 핵심 자원</div><ul><li>유학생 네트워크</li><li>이북 원본·저작권</li><li>에이전트 교육 가이드</li></ul></div><div class="cb"><div class="cb-lbl" style="color:#0F6E56;">📡 채널</div><ul><li>유학생 SNS (유튜브·틱톡)</li><li>아마존·위챗·Zalo·라쿠텐</li><li>K-mediWell 앱 다국어</li></ul></div></div></div>
+      <div class="cb" style="grid-row:span 2;"><div class="cb-lbl" style="color:#185FA5;">👥 고객 세그먼트</div><div class="cb-sec">▸ 에이전트</div><ul><li>한국 유학 외국인 학생</li><li>귀국 후 창업 희망자</li></ul><div class="cb-sec">▸ 현지 소비자</div><ul><li>한국 방문 예정 외국인</li><li>K-컬처·한류 팬</li><li>건강·힐링 관심자</li></ul><div class="cb-sec">▸ B2B</div><ul><li>현지 여행사</li><li>관광공사 해외지사</li></ul></div>
+    </div>
+    <div class="cbot reveal"><div class="cb cost"><div class="cb-lbl" style="color:#993C1D;">💸 비용 구조</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 10px;"><ul><li>유학생 번역 지원금</li><li>번역 검수·현지화</li></ul><ul><li>에이전트 교육·관리</li><li>현지 마케팅·법무</li></ul></div></div><div class="cb rev"><div class="cb-lbl" style="color:#3C3489;">💰 수익 흐름</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 10px;"><ul><li>이북 판매 (70% : 30%)</li><li>예약 수수료 5~10%</li></ul><ul><li>에이전시 라이선스</li><li>번역 저작권 로열티</li></ul></div></div></div>
+    <p style="font-size:10px;color:var(--il);text-align:right;margin-top:7px;">참조: Osterwalder &amp; Pigneur (2010) · 한국관광공사 웰니스관광 88선</p>
+  </div>
+</section>
+
+<!-- ── FUTURE VALUE ── -->
+<section class="future-section" id="future">
+  <div class="future-inner">
+    <p class="future-ey">K-MediWell Future Value</p>
+    <h2 class="future-title">K-MediWell의 미래 가치 —<br><span style="color:var(--gold)">K-힐링, 세 번째 K-브랜드가 된다</span></h2>
+    <p class="future-desc">K-팝, K-푸드에 이어 K-힐링을 대한민국의 세 번째 글로벌 문화 브랜드로 정립합니다. K-MediWell이 그 플랫폼이 됩니다.</p>
+
+    <div class="future-grid reveal">
+      <div class="fv-card"><div class="fv-num">1.5억</div><div class="fv-lbl">전세계 K-컬처 팬 잠재 고객</div><p class="fv-desc">K-팝·K-드라마 팬이 K-힐링으로 자연스럽게 연결되는 수요 풀. 이미 검증된 K-브랜드 충성도를 활용합니다.</p></div>
+      <div class="fv-card"><div class="fv-num">70개국</div><div class="fv-lbl">Phase 3 글로벌 에이전트 목표</div><p class="fv-desc">30만 유학생 에이전트가 70개국에 K-힐링 콘텐츠를 유통. 인적 네트워크 기반의 복제 불가능한 글로벌 유통망.</p></div>
+      <div class="fv-card gold-card"><div class="fv-num">4.0×</div><div class="fv-lbl">3년 누적 투자 회수 배율</div><p class="fv-desc">예약 수수료 + 이북 판매 + 에이전시 라이선스 + 교육 프로그램의 6가지 수익 흐름이 복리로 누적됩니다.</p></div>
+    </div>
+
+    <div class="value-props reveal">
+      <div class="vp-card">
+        <div class="vp-icon">🏛</div>
+        <div class="vp-title">규제 선점 우위</div>
+        <p class="vp-desc">치유관광산업육성법(2026.4.9) 시행으로 K-MediWell이 첫 번째 공인 플랫폼으로 포지셔닝. 후발 주자가 따라올 수 없는 제도적 해자.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🤖</div>
+        <div class="vp-title">AI + 인간의 결합</div>
+        <p class="vp-desc">AI 번역으로 80% 비용 절감 + 유학생 원어민 감수의 진정성. 어떤 AI 단독 플랫폼도 복제할 수 없는 문화적 신뢰도를 갖춥니다.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">🌿</div>
+        <div class="vp-title">지역 뿌리 + 글로벌 날개</div>
+        <p class="vp-desc">지방소멸 위기 지역의 전통 치유 자원을 글로벌 콘텐츠로 전환. 로컬의 깊이가 글로벌 차별화 요소가 되는 유일한 구조.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">♾️</div>
+        <div class="vp-title">자기 강화 생태계</div>
+        <p class="vp-desc">유학생이 늘수록 콘텐츠가 늘고, 콘텐츠가 늘수록 독자가 늘고, 독자가 늘수록 예약이 늘고, 예약이 늘수록 시설이 늘어나는 복리 성장 구조.</p>
+      </div>
+    </div>
+
+    <div class="mission-quote reveal">
+      <p class="mq-text">
+        "전통은 수출이 되고, 치유는 산업이 되고,<br>
+        한국은 <em>디지털 노마드의 새로운 성지</em>가 된다.<br>
+        야놀자가 숙박을 혁신했듯, K-MediWell은<br>
+        <span class="gold-em">치유관광의 새 시대</span>를 만든다."
+      </p>
+      <p class="mq-source">— K-MediWell Mission Statement · 국립공주대학교 K-MediWell 글로컬 프로젝트팀</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── KPI ── -->
+<section class="sec-sf" id="kpi">
+  <div class="si">
+    <p class="ey">📈 KPI — Key Metrics</p>
+    <h2>숫자로 증명하는 K-mediWell 성장</h2>
+    <p class="sd">단계별 핵심 성과 지표. 각 단계의 KPI는 다음 단계의 출발점이 됩니다.</p>
+    <div class="kpi-grid reveal">
+      <div class="kpi-card"><span class="kpi-phase kp1">Phase 1</span><div class="kpi-num">50명</div><div class="kpi-lbl">파일럿 유학생 참여자</div><div class="kpi-time">0~6개월</div></div>
+      <div class="kpi-card"><span class="kpi-phase kp1">Phase 1</span><div class="kpi-num">5종</div><div class="kpi-lbl">전자북·웹툰 출간</div><div class="kpi-time">0~6개월</div></div>
+      <div class="kpi-card"><span class="kpi-phase kp2">Phase 2</span><div class="kpi-num">500명</div><div class="kpi-lbl">글로벌 셀러 양성</div><div class="kpi-time">6~18개월</div></div>
+      <div class="kpi-card"><span class="kpi-phase kp2">Phase 2</span><div class="kpi-num">170개</div><div class="kpi-lbl">대사관 채널 연계</div><div class="kpi-time">6~18개월</div></div>
+      <div class="kpi-card"><span class="kpi-phase kp3">Phase 3</span><div class="kpi-num">1,400개</div><div class="kpi-lbl">글로벌 플랫폼 연결</div><div class="kpi-time">18개월+</div></div>
+      <div class="kpi-card"><span class="kpi-phase kp3">Phase 3</span><div class="kpi-num">70개국</div><div class="kpi-lbl">글로벌 셀러 활동 국가</div><div class="kpi-time">18개월+</div></div>
+      <div class="kpi-card"><span class="kpi-phase kpa">3년 누적</span><div class="kpi-num">4.0×</div><div class="kpi-lbl">투자 대비 회수 배율</div><div class="kpi-time">3년 목표</div></div>
+      <div class="kpi-card"><span class="kpi-phase kpa">전 단계</span><div class="kpi-num">80%</div><div class="kpi-lbl">AI 활용 제작비 절감율</div><div class="kpi-time">전 단계 적용</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MVP STATUS ── -->
+<section class="mvp-section" id="mvp">
+  <div class="si">
+    <div class="mvp-grid">
+      <div class="reveal">
+        <p style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gs);margin-bottom:10px;display:flex;align-items:center;gap:8px;"><span style="width:18px;height:1px;background:var(--gs);display:inline-block;"></span>MVP Development Status</p>
+        <h2 style="color:#fff;">현재 개발 현황</h2>
+        <p style="font-size:13px;color:rgba(255,255,255,0.48);max-width:440px;line-height:1.9;margin-bottom:22px;">모두의 창업 1라운드 선정작. 치유관광산업육성법 시행과 함께 대한민국 치유관광의 새 시대를 열고 있습니다.</p>
+        <div class="sl">
+          <div class="si2"><div class="sd2 done2"></div><span class="sl2">비즈니스 모델 캔버스 완성 (1·2·3단계)</span><span class="sb sb-done">완료</span></div>
+          <div class="si2"><div class="sd2 done2"></div><span class="sl2">88개 웰니스관광지 기초 DB 구성</span><span class="sb sb-done">완료</span></div>
+          <div class="si2"><div class="sd2 done2"></div><span class="sl2">K-mediWell 브랜드 아이덴티티 수립</span><span class="sb sb-done">완료</span></div>
+          <div class="si2"><div class="sd2 done2"></div><span class="sl2">모두의 창업 1라운드 선정 · MVP 사이트 공개</span><span class="sb sb-done">완료</span></div>
+          <div class="si2"><div class="sd2 done2"></div><span class="sl2">치유관광산업육성법 2026.4.9 시행 — 법적 기반 확보</span><span class="sb sb-done">시행</span></div>
+          <div class="si2"><div class="sd2 prog2"></div><span class="sl2">예약 플랫폼 프로토타입 개발</span><span class="sb sb-prog">진행 중</span></div>
+          <div class="si2"><div class="sd2 prog2"></div><span class="sl2">이북 시리즈 1호 기획 및 원고 작성</span><span class="sb sb-prog">진행 중</span></div>
+          <div class="si2"><div class="sd2 plan2"></div><span class="sl2">외국인 유학생 에이전트 1기 모집</span><span class="sb sb-plan">예정</span></div>
+          <div class="si2"><div class="sd2 plan2"></div><span class="sl2">파일럿 3개국 진출 (중국·베트남·일본)</span><span class="sb sb-plan">예정</span></div>
+        </div>
+      </div>
+      <div class="met-grid reveal">
+        <div class="met-card"><div class="met-num">88</div><div class="met-lbl">공식 웰니스관광지</div><div class="met-sub">한국관광공사 선정</div></div>
+        <div class="met-card"><div class="met-num">30만</div><div class="met-lbl">유학생 에이전트 풀</div><div class="met-sub">한국 내 외국인 유학생</div></div>
+        <div class="met-card"><div class="met-num">1.5억</div><div class="met-lbl">잠재 소비자</div><div class="met-sub">전세계 K-컬처 팬</div></div>
+        <div class="met-card"><div class="met-num">170개</div><div class="met-lbl">대사관 채널</div><div class="met-sub">글로벌 공식 배포망</div></div>
+        <div class="met-card"><div class="met-num">4.0×</div><div class="met-lbl">투자 회수 배율</div><div class="met-sub">3년 누적 목표</div></div>
+        <div class="met-card" style="background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.25);">
+          <div class="met-num" style="color:var(--gold);font-size:16px;">더 치유의 시대</div>
+          <div class="met-lbl" style="color:rgba(255,255,255,0.5);">K-힐링 세계 표준화</div>
+          <div class="met-sub">K-팝·K-푸드에 이은 세 번째 K-브랜드</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="font-size:17px;font-family:'Noto Serif KR',serif;color:rgba(255,255,255,0.8);font-weight:600;margin-bottom:8px;">K-mediWell · 더 치유</p>
+  <p>국립공주대학교 K-MediWell 글로컬 프로젝트팀 · 모두의 창업 1라운드 선정작</p>
+  <p style="margin-top:4px;">야놀자의 시대 → 더 휴식의 시대 → <strong>더 치유의 시대</strong> · K-힐링 글로벌 플랫폼</p>
+  <p style="margin-top:6px;">참조: Osterwalder &amp; Pigneur (2010), Business Model Generation · 한국관광공사 웰니스관광 88선 · 치유관광산업육성법 2026.4.9</p>
+  <p style="margin-top:6px;"><a href="https://kmediwell.github.io/k-mediwell/" style="color:rgba(255,255,255,0.4);">kmediwell.github.io/k-mediwell</a> · touryklee@naver.com</p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target);}});
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
